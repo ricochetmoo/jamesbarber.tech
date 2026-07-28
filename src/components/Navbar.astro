@@ -1,0 +1,38 @@
+---
+import "../styles/global.css";
+import { Icon } from "astro-icon/components";
+---
+
+<header class="flex items-center w-full border-b-2 border-gray-600 py-4 mb-4">
+	<span class="font-heading font-bold text-3xl">James Barber</span>
+	<div class="ml-auto flex gap-3 text-xl items-center">
+		{
+			[
+				{
+					icon: "simple-icons:github",
+					name: "GitHub",
+					href: "https://github.com/ricochetmoo",
+				},
+				{
+					icon: "simple-icons:linkedin",
+					name: "LinkedIn",
+					href: "https://linkedin.com/in/jamesrorybarber",
+				},
+				{
+					icon: "simple-icons:x",
+					name: "X",
+					href: "https://x.com/jamesrorybarber",
+				},
+			].map(({ icon, name, href }) => (
+				<a
+					href={href}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="hover:text-gray-700 hover:scale-110 focus-visible:scale-110 transition-transform duration-200 ease-out "
+				>
+					<Icon name={icon} desc={name} />
+				</a>
+			))
+		}
+	</div>
+</header>
