@@ -1,0 +1,29 @@
+---
+import "../styles/global.css";
+import { Icon } from "astro-icon/components";
+
+interface Props {
+	projects: {
+		title: string;
+		logo: string;
+		colour: string;
+		slug: string;
+		dark?: boolean;
+	}[];
+}
+
+const {projects} = Astro.props;
+---
+
+<div class="flex gap-3 my-4 pl-3 overflow-x-scroll scrollbar-none">
+	{
+		projects.map((project) => (
+			<a href={`/projects/${project.slug}`} class="flex-none">
+				<div class="h-75 w-75 rounded-3xl relative" style={`background-color: ${project.colour}`}>
+					<img src={project.logo} alt={project.title} class="h-full w-full object-contain" />
+					<Icon name="bi:arrow-right" class="absolute right-4 bottom-4 w-6 h-6 text-white" />
+				</div>
+				</a>
+		))
+	}
+</div>

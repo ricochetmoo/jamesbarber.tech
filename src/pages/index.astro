@@ -1,9 +1,44 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import ProjectsCarousel from "../components/ProjectsCarousel.astro";
+import { Icon } from "astro-icon/components";
 import "../styles/global.css";
+
+const projects = [
+	{
+		title: "Schroll",
+		logo: "/assets/astro.svg",
+		colour: "#38b7aa",
+		slug: "schroll",
+	},
+	{
+		title: "Harker",
+		logo: "/assets/astro-icon.svg",
+		colour: "#7413dc",
+		slug: "harker",
+	},
+	{
+		title: "Just Send",
+		logo: "/assets/astro-icon.svg",
+		colour: "#FF5D01",
+		slug: "just-send",
+	},
+	{
+		title: "Liverpool Lindr",
+		logo: "/assets/astro-icon.svg",
+		colour: "#000",
+		slug: "liverpool-lindr",
+	},
+];
 ---
 
 <Layout title="Home" description="All about James Barber.">
 	<h1 class="font-heading">Astro!</h1>
 	<p>Test</p>
+	<h2 class="font-heading text-4xl mb-2">Projects</h2>
+	<p>Here's a highlight of some of my more interesting projects.</p>
+	<section class="relative left-1/2 w-screen -translate-x-1/2">
+		<ProjectsCarousel projects={projects} />
+	</section>
+	<div class="flex items-center justify-end font-heading text-xl"><a href="/projects" class="flex items-center gap-2">All projects <Icon name="bi:arrow-right" class="inline-block w-6 h-6" /></a></div>
 </Layout>
