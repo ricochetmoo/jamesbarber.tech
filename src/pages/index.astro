@@ -3,29 +3,32 @@ import Layout from "../layouts/Layout.astro";
 import ProjectsCarousel from "../components/ProjectsCarousel.astro";
 import { Icon } from "astro-icon/components";
 import "../styles/global.css";
+import type { ImageMetadata } from "astro";
+
+const logos = import.meta.glob<ImageMetadata>("../assets/projects/*/logo.svg", { eager: true, import: "default" });
 
 const projects = [
 	{
 		title: "Schroll",
-		logo: "/assets/astro.svg",
+		logo: logos["../assets/projects/harker/logo.svg"],
 		colour: "#38b7aa",
 		slug: "schroll",
 	},
 	{
 		title: "Harker",
-		logo: "/assets/astro-icon.svg",
+		logo: logos["../assets/projects/harker/logo.svg"],
 		colour: "#7413dc",
 		slug: "harker",
 	},
 	{
 		title: "Just Send",
-		logo: "/assets/astro-icon.svg",
+		logo: logos["../assets/projects/harker/logo.svg"],
 		colour: "#FF5D01",
 		slug: "just-send",
 	},
 	{
 		title: "Liverpool Lindr",
-		logo: "/assets/astro-icon.svg",
+		logo: logos["../assets/projects/harker/logo.svg"],
 		colour: "#000",
 		slug: "liverpool-lindr",
 	},
